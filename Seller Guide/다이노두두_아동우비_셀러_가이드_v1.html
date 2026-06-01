@@ -174,6 +174,15 @@ section { padding: 100px 0; position: relative; }
 /* Editable placeholder hint */
 .ph { color: var(--gold); font-weight: 700; }
 
+/* Size table */
+.size-table { margin-top: 28px; border-radius: 14px; overflow: hidden; border: 1px solid var(--dark5); }
+.size-table table { width: 100%; border-collapse: collapse; }
+.size-table th { background: var(--dark4); color: var(--white); padding: 14px 12px; font-size: 13px; font-weight: 700; }
+.size-table td { padding: 13px 12px; font-size: 13px; text-align: center; color: var(--gray3); border-top: 1px solid var(--dark5); }
+.size-table td:first-child { font-weight: 800; color: var(--accent); }
+.size-table tr:nth-child(even) td { background: var(--dark3); }
+.size-note { margin-top: 12px; font-size: 12px; color: var(--gray2); text-align: right; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .cover-grid, .pain-grid, .tip-grid, .target-grid { grid-template-columns: 1fr; }
@@ -231,30 +240,42 @@ section { padding: 100px 0; position: relative; }
   <div class="container">
     <div class="section-label reveal" style="color:var(--accent);">PRODUCT AT A GLANCE</div>
     <h2 class="section-title reveal">상품을 <span class="accent">한눈에</span></h2>
-    <p class="target-intro reveal">다이노 두두 캐릭터 아동우비 — 귀여운 공룡 캐릭터 디자인에 <strong style="color:var(--accent);">기능성까지 갖춘 아동용 우비</strong>입니다. 아래 핵심 정보를 먼저 익혀두세요.</p>
+    <p class="target-intro reveal">다이노 두두 캐릭터 아동우비 — 귀여운 공룡 캐릭터 디자인에 <strong style="color:var(--accent);">기능성까지 갖춘 판초형 아동 우비</strong>입니다. 아래 핵심 정보를 먼저 익혀두세요.</p>
     <div class="spec-grid">
       <div class="spec-card reveal reveal-delay-1">
         <div class="label">판매가</div>
-        <div class="value accent"><span class="ph">[ 판매가 ]</span></div>
-        <div class="sub">정상가 <span class="ph">[ 정상가 ]</span></div>
+        <div class="value accent">16,610원</div>
+        <div class="sub">국내택배 · 5만원↑ 무료배송</div>
       </div>
       <div class="spec-card reveal reveal-delay-2">
         <div class="label">사이즈</div>
-        <div class="value"><span class="ph">[ S~XL ]</span></div>
-        <div class="sub">권장 연령 <span class="ph">[ 00세 ]</span></div>
+        <div class="value">S · M · L</div>
+        <div class="sub">권장 신장 105~145cm</div>
       </div>
       <div class="spec-card reveal reveal-delay-3">
         <div class="label">색상/옵션</div>
-        <div class="value"><span class="ph">[ 0종 ]</span></div>
-        <div class="sub"><span class="ph">[ 색상명 ]</span></div>
+        <div class="value">2종</div>
+        <div class="sub">다이노(옐로우) · 두두(핑크)</div>
       </div>
       <div class="spec-card reveal reveal-delay-4">
         <div class="label">소재</div>
-        <div class="value teal"><span class="ph">[ 소재 ]</span></div>
-        <div class="sub"><span class="ph">[ 방수/PVC 등 ]</span></div>
+        <div class="value teal">폴리에스테르</div>
+        <div class="sub">외 · 원산지 중국</div>
       </div>
     </div>
-    <p class="revenue-note reveal reveal-delay-5">※ <span class="ph">[ ]</span> 안의 값은 실제 상품 상세 정보로 채워주세요.</p>
+    <div class="size-table reveal reveal-delay-5">
+      <table>
+        <thead>
+          <tr><th>사이즈</th><th>전면 길이</th><th>후면 길이</th><th>폭</th><th>권장 신장</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>S</td><td>75cm</td><td>80cm</td><td>106cm</td><td>105~120cm</td></tr>
+          <tr><td>M</td><td>79cm</td><td>85cm</td><td>113cm</td><td>120~135cm</td></tr>
+          <tr><td>L</td><td>83cm</td><td>90cm</td><td>120cm</td><td>135~145cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="size-note reveal reveal-delay-5">※ 수동 측정으로 1.5~2cm 오차가 있을 수 있습니다.</p>
   </div>
 </section>
 
@@ -325,21 +346,29 @@ section { padding: 100px 0; position: relative; }
       <div class="sell-point reveal reveal-delay-3">
         <div class="sell-num">③</div>
         <div class="sell-content">
-          <h4>아이가 먼저 찾는 <span class="hl">공룡 캐릭터 디자인</span></h4>
-          <p>다이노 두두 캐릭터로 아이들이 입기 싫어하지 않아요. "우비 입자" 실랑이 없이 스스로 챙겨 입는 우비입니다.</p>
+          <h4>아이가 먼저 찾는 <span class="hl">캐릭터 디자인 2종</span></h4>
+          <p>등에 공룡 등지느러미가 솟은 판초형 디자인. <strong style="color:var(--white);">다이노(옐로우)·두두(핑크)</strong> 2가지 색상으로 남아·여아 모두 커버됩니다. "우비 입자" 실랑이 없이 스스로 챙겨 입어요.</p>
           <div class="talk">💬 <b>공감 후킹:</b> "우비 입기 싫다던 우리 애가 이건 자기가 입겠대요 🦕"</div>
         </div>
       </div>
       <div class="sell-point reveal reveal-delay-4">
         <div class="sell-num">④</div>
         <div class="sell-content">
+          <h4>수납 가방 포함 + <span class="hl">야간 반사 테두리</span></h4>
+          <p>독립형 수납 가방이 있어 가방에 쏙 넣어 휴대·보관이 간편해요. 밑단 반사 테두리로 어두운 비 오는 날 등하원도 더 안전합니다.</p>
+          <div class="talk">💬 <b>안심 포인트:</b> "쓰고 나면 가방에 쏙! 비 그친 뒤에도 가볍게 들고 다녀요."</div>
+        </div>
+      </div>
+      <div class="sell-point reveal reveal-delay-5">
+        <div class="sell-num">⑤</div>
+        <div class="sell-content">
           <h4>장마철 <span class="hl">필수템 · 선물용</span>으로도 굿</h4>
-          <p>가격 부담 없이 한 벌쯤 준비해두기 좋고, 선물로도 만족도가 높습니다. 시즌 수요를 자극하면 회전이 빠른 상품이에요.</p>
+          <p>16,610원 부담 없는 가격에 한 벌쯤 준비해두기 좋고, 선물로도 만족도가 높습니다. 시즌 수요를 자극하면 회전이 빠른 상품이에요.</p>
           <div class="talk">💬 <b>구매 전환:</b> "장마 시작 전 미리 챙기세요. 비 올 때 품절되면 늦어요!"</div>
         </div>
       </div>
     </div>
-    <p class="revenue-note reveal reveal-delay-5">※ ①②는 확정 정보, ③④는 상품 유형 기반 추천 문구입니다. 실제 상세페이지 내용으로 보완해주세요.</p>
+    <p class="revenue-note reveal">※ 모든 항목은 실제 상품 상세페이지 정보 기준입니다. 멘트 예시는 자유롭게 변형해 사용하세요.</p>
   </div>
 </section>
 
@@ -349,12 +378,12 @@ section { padding: 100px 0; position: relative; }
     <div class="section-label reveal" style="color:var(--accent);">FEATURES</div>
     <h2 class="section-title reveal">이런 <span class="accent">특징</span>이 있어요</h2>
     <div class="benefit-grid">
-      <div class="benefit-card reveal reveal-delay-1"><div class="benefit-emoji">🧢</div><div class="benefit-name">긴 챙 모자</div><div class="benefit-sub">얼굴·머리까지<br>비 차단</div></div>
+      <div class="benefit-card reveal reveal-delay-1"><div class="benefit-emoji">💧</div><div class="benefit-name">방수 · 누수방지</div><div class="benefit-sub">폴리에스테르 소재로<br>비를 확실하게 차단</div></div>
       <div class="benefit-card reveal reveal-delay-2"><div class="benefit-emoji">👀</div><div class="benefit-name">투명 전면창</div><div class="benefit-sub">시야 확보로<br>안전하게</div></div>
-      <div class="benefit-card reveal reveal-delay-3"><div class="benefit-emoji">🦕</div><div class="benefit-name">공룡 캐릭터</div><div class="benefit-sub">아이가 좋아하는<br>귀여운 디자인</div></div>
-      <div class="benefit-card reveal reveal-delay-1"><div class="benefit-emoji">💧</div><div class="benefit-name">방수 소재</div><div class="benefit-sub"><span class="ph">[ 소재 정보 ]</span><br>확실한 방수</div></div>
-      <div class="benefit-card reveal reveal-delay-2"><div class="benefit-emoji">📏</div><div class="benefit-name">사이즈 선택</div><div class="benefit-sub"><span class="ph">[ 사이즈 범위 ]</span><br>연령별 맞춤</div></div>
-      <div class="benefit-card reveal reveal-delay-3"><div class="benefit-emoji">🎒</div><div class="benefit-name">활동 편의</div><div class="benefit-sub"><span class="ph">[ 가방 수납 등 ]</span><br>편한 착용</div></div>
+      <div class="benefit-card reveal reveal-delay-3"><div class="benefit-emoji">🧢</div><div class="benefit-name">긴 챙 모자</div><div class="benefit-sub">얼굴·머리까지<br>비 차단</div></div>
+      <div class="benefit-card reveal reveal-delay-1"><div class="benefit-emoji">♻️</div><div class="benefit-name">내마모 · 주름방지</div><div class="benefit-sub">튼튼하게 오래<br>구김 없이 깔끔</div></div>
+      <div class="benefit-card reveal reveal-delay-2"><div class="benefit-emoji">🎒</div><div class="benefit-name">수납 가방 포함</div><div class="benefit-sub">독립형 가방으로<br>휴대·보관 간편</div></div>
+      <div class="benefit-card reveal reveal-delay-3"><div class="benefit-emoji">🦺</div><div class="benefit-name">야간 반사 테두리</div><div class="benefit-sub">밑단 반사선으로<br>어두운 날도 안전</div></div>
     </div>
     <div class="benefit-bottom-bar reveal reveal-delay-4">
       안전은 부모에게, 귀여움은 아이에게 — 두 사람을 동시에 만족시키는 우비 ☔🦕
@@ -403,7 +432,7 @@ section { padding: 100px 0; position: relative; }
     <div class="revenue-detail reveal reveal-delay-1">
       <div class="revenue-detail-card">
         <div class="label">판매 수수료</div>
-        <div class="value"><span class="ph">[ 00% ]</span></div>
+        <div class="value">15~20%</div>
         <div class="desc">상품별 책정</div>
       </div>
       <div class="revenue-detail-card">
