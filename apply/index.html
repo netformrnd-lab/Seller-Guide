@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>셀러 수익 구조 & 입점 신청 | 모여라딜</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --bg:#0c0c0e;
+  --card:#1a1a1d;
+  --card-border:#2c2c30;
+  --orange:#fc9600;
+  --orange-dark:#f57c00;
+  --green-bg:#102a1f;
+  --green-border:#2fd07a;
+  --mark:#ffe600;
+  --kakao:#fee500;
+  --white:#ffffff;
+  --gray:#9a9aa0;
+  --gray-dim:#7a7a80;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;
+  background:var(--bg);color:var(--white);
+  word-break:keep-all;-webkit-font-smoothing:antialiased;
+}
+mark{background:var(--mark);color:#1a1a1a;padding:0 4px;border-radius:3px;font-weight:inherit;}
+
+/* ============ 1) 셀러 수익 구조 ============ */
+.revenue{padding:64px 24px;}
+.rev-wrap{max-width:1160px;margin:0 auto;}
+.rev-eyebrow{font-size:14px;font-weight:800;letter-spacing:.28em;color:var(--orange);margin-bottom:16px;}
+.rev-title{font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.2;margin-bottom:48px;}
+.rev-title .o{color:var(--orange);}
+
+.flow-row{display:flex;align-items:stretch;gap:8px;margin-bottom:20px;}
+.flow-row .rcard{flex:1;}
+.arrow{display:flex;align-items:center;justify-content:center;color:var(--gray-dim);font-size:24px;font-weight:300;flex-shrink:0;width:32px;}
+
+.rcard{
+  background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+  padding:40px 24px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.rcard.highlight{
+  background:var(--green-bg);border:1.5px solid var(--green-border);
+  box-shadow:0 0 0 1px rgba(47,208,122,.15),0 12px 40px rgba(47,208,122,.12);
+}
+.ricon{font-size:34px;margin-bottom:20px;line-height:1;}
+.rlabel{font-size:15px;color:var(--gray);font-weight:600;margin-bottom:10px;}
+.rbig{font-size:30px;font-weight:900;letter-spacing:-.02em;line-height:1.25;margin-bottom:14px;}
+.rbig.o{color:var(--orange);}
+.rbig.w{color:var(--white);}
+.rdesc{font-size:14px;color:var(--gray-dim);font-weight:500;line-height:1.55;}
+.rcard.highlight .rsub{font-size:18px;font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.4;}
+.rcard.highlight .rsub b{color:var(--orange);}
+.rcard.highlight .rfoot{font-size:14px;color:var(--gray);font-weight:600;line-height:1.55;}
+
+.stat-row{display:flex;gap:8px;margin-bottom:28px;}
+.scard{flex:1;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:34px 20px;text-align:center;}
+.slabel{font-size:15px;color:var(--gray);font-weight:600;margin-bottom:12px;}
+.snum{font-size:38px;font-weight:900;letter-spacing:-.02em;margin-bottom:10px;}
+.snum.o{color:var(--orange);}
+.sdesc{font-size:14px;color:var(--gray-dim);font-weight:500;}
+.rev-foot{text-align:center;font-size:14px;color:var(--gray-dim);font-weight:500;}
+
+/* ============ 2) 마무리 CTA ============ */
+.closing{position:relative;padding:88px 24px 96px;text-align:center;overflow:hidden;}
+.closing::before{
+  content:"";position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:600px;height:360px;max-width:90%;
+  background:radial-gradient(ellipse at center,rgba(252,150,0,.22),transparent 70%);
+  pointer-events:none;
+}
+.cl-wrap{position:relative;max-width:680px;margin:0 auto;}
+.cl-title{font-size:44px;font-weight:900;letter-spacing:-.03em;line-height:1.28;margin-bottom:18px;}
+.cl-title .o{color:var(--orange);}
+.cl-sub{font-size:17px;color:var(--gray);font-weight:500;margin-bottom:44px;}
+
+.contact{background:var(--card);border:1px solid var(--card-border);border-radius:20px;max-width:420px;margin:0 auto 36px;padding:28px;}
+.contact .team{font-size:16px;font-weight:800;color:var(--orange);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.contact .team .dot{width:9px;height:9px;border-radius:50%;background:var(--orange);display:inline-block;}
+.contact .row{display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:600;color:var(--white);padding:7px 0;text-decoration:none;transition:.15s;}
+.contact a.row:hover{color:var(--orange);}
+.contact .row .ico{font-size:15px;}
+
+.apply{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:480px;padding:22px;
+  background:linear-gradient(180deg,var(--orange),var(--orange-dark));
+  color:#fff;font-size:20px;font-weight:800;letter-spacing:-.01em;
+  border-radius:999px;text-decoration:none;
+  box-shadow:0 0 0 1px rgba(252,150,0,.3),0 16px 50px rgba(252,150,0,.4);transition:.18s;
+}
+.apply:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(252,150,0,.4),0 20px 60px rgba(252,150,0,.5);}
+
+@media(max-width:860px){
+  .rev-title{font-size:32px;margin-bottom:36px;}
+  .flow-row{flex-direction:column;gap:8px;}
+  .arrow{transform:rotate(90deg);width:auto;height:28px;}
+  .stat-row{flex-direction:column;}
+  .rcard{padding:32px 20px;}
+}
+@media(max-width:600px){
+  .cl-title{font-size:32px;}
+  .cl-sub{font-size:15px;margin-bottom:36px;}
+  .apply{font-size:18px;padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1) 셀러 수익 구조 ============ -->
+<section class="revenue">
+  <div class="rev-wrap">
+
+    <p class="rev-eyebrow">REVENUE STRUCTURE</p>
+    <h2 class="rev-title">셀러 <span class="o">수익 구조</span></h2>
+
+    <div class="flow-row">
+      <div class="rcard">
+        <div class="ricon">🛒</div>
+        <p class="rlabel">셀러 활동</p>
+        <p class="rbig o">공구진행</p>
+        <p class="rdesc">콘텐츠 제작 &amp;<br>공구 링크 공유</p>
+      </div>
+      <span class="arrow">→</span>
+      <div class="rcard">
+        <div class="ricon">📊</div>
+        <p class="rlabel">수익 배분</p>
+        <p class="rbig w">상품별 상이</p>
+        <p class="rdesc">공급사 원가 +<br>플랫폼 운영비</p>
+      </div>
+      <span class="arrow">→</span>
+      <div class="rcard highlight">
+        <div class="ricon">💸</div>
+        <p class="rlabel">셀러 수익</p>
+        <p class="rbig o">판매 <mark>수수료</mark></p>
+        <p class="rsub">입점 전 셀러는 <b>협의 필요</b></p>
+        <p class="rfoot">상품별 판매 <mark>수수료</mark><br>3일 이내 정산</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="scard">
+        <p class="slabel">입점비</p>
+        <p class="snum o">0원</p>
+        <p class="sdesc">완전 무료</p>
+      </div>
+      <div class="scard">
+        <p class="slabel">정산 주기</p>
+        <p class="snum o">3일</p>
+        <p class="sdesc">업계 최빠른 정산</p>
+      </div>
+      <div class="scard">
+        <p class="slabel">재고 리스크</p>
+        <p class="snum o">0원</p>
+        <p class="sdesc">재고 부담 없음</p>
+      </div>
+    </div>
+
+    <p class="rev-foot">※ 판매 <mark>수수료</mark>율은 상품 카테고리 및 공급사 조건에 따라 상이합니다</p>
+
+  </div>
+</section>
+
+<!-- ============ 2) 마무리 CTA ============ -->
+<section class="closing">
+  <div class="cl-wrap">
+
+    <h1 class="cl-title"><span class="o">셀러</span>의<br>성공적인 시작을 함께합니다</h1>
+    <p class="cl-sub">콘텐츠와 소통에 집중하고, 확실한 수익을 경험하세요</p>
+
+    <div class="contact">
+      <div class="team"><span class="dot"></span>모여라딜 파트너팀</div>
+      <a class="row" href="mailto:moyeoradeal@naver.com"><span class="ico">✉️</span>moyeoradeal@naver.com</a>
+      <a class="row" href="tel:1800-8430"><span class="ico">📞</span>대표번호 1800-8430</a>
+      <a class="row kakao" href="http://pf.kakao.com/_xdZVkn/chat" target="_blank" rel="noopener"><span class="ico">💬</span>카카오톡 채널 상담</a>
+    </div>
+
+    <a class="apply" href="https://partner-moyeoradeal.kr/seller/apply/" target="_blank" rel="noopener">
+      🏷️ 셀러 입점 신청하기
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>
