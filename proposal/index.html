@@ -625,7 +625,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 (function(){
   const slides = [...document.querySelectorAll('.ph-slide')];
   if (slides.length < 2) return;
-  const durations = [4000, 1500]; // gif 4초, 정지 이미지 1.5초 (영상은 끝까지 재생)
+  const durations = [4000, 800]; // gif 4초, 정지 이미지 0.8초 (영상은 끝까지 재생)
   let i = 0, timer;
   function next(){ show((i + 1) % slides.length); }
   function show(n){
