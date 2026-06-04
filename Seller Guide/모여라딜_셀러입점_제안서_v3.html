@@ -87,6 +87,9 @@ section { padding: 100px 0; position: relative; }
 .phone-name { font-size: 12px; font-weight: 600; }
 .phone-name span { display: block; font-size: 10px; color: var(--gray1); font-weight: 400; }
 .phone-content { flex: 1; background: var(--dark5); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; font-size: 40px; }
+.ph-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; }
+.ph-slide.active { opacity: 1; }
+.ph-slide img, .ph-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .phone-content-label { font-size: 16px; color: var(--gray1); font-weight: 600; }
 .cover-date { position: absolute; bottom: 40px; right: 40px; font-size: 13px; color: var(--gray2); }
 
@@ -323,10 +326,10 @@ mark{background:var(--mark);color:#1a1a1a;padding:0 4px;border-radius:3px;font-w
               <div class="phone-avatar"></div>
               <div class="phone-name">moyeora_deal<span>공동구매 셀러</span></div>
             </div>
-            <div class="phone-content" style="padding:0;">
-              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-                <source src="moyeora_reel.mp4" type="video/mp4">
-              </video>
+            <div class="phone-content" style="padding:0;position:relative;">
+              <div class="ph-slide active"><img src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2F1-3.gif?alt=media&token=c4c3ad95-4eba-45d5-888e-72d5bdacdf6c" alt="모여라딜 공구 콘텐츠"></div>
+              <div class="ph-slide"><img src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2FImage_2026-06-04%2015_53_38.png?alt=media&token=cb69ff9f-2265-47bd-b92b-f28e676fe1be" alt="모여라딜 공구 콘텐츠"></div>
+              <div class="ph-slide"><video src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2Fyulmom_reel_2025_%2011_%2022__%EC%98%A4%ED%9B%84%207_06_423771398937862279941.mp4?alt=media&token=d6ccfa46-4529-477f-9a49-c34883de2c18" autoplay muted loop playsinline></video></div>
             </div>
           </div>
         </div>
@@ -617,6 +620,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// 커버 폰 목업 슬라이드 자동 전환 (gif → 이미지 → 영상)
+(function(){
+  const slides = document.querySelectorAll('.ph-slide');
+  if (slides.length < 2) return;
+  let i = 0;
+  setInterval(() => {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+  }, 3500);
+})();
 </script>
 </body>
 </html>
