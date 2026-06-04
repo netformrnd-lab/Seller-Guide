@@ -203,6 +203,25 @@ mark{background:var(--mark);color:#1a1a1a;padding:0 4px;border-radius:3px;font-w
 .sdesc{font-size:14px;color:var(--gray-dim);font-weight:500;}
 .rev-foot{text-align:center;font-size:14px;color:var(--gray-dim);font-weight:500;}
 
+/* ===== REVENUE (원래 v3) ===== */
+.revenue-flow { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; gap: 0; align-items: stretch; margin-top: 40px; }
+.revenue-box { border-radius: 16px; padding: 28px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.revenue-box.dark { background: var(--dark3); border: 1px solid var(--dark5); }
+.revenue-box.green { background: linear-gradient(135deg, rgba(0,201,167,0.15), rgba(0,201,167,0.05)); border: 1px solid rgba(0,201,167,0.3); }
+.revenue-box-icon { font-size: 32px; margin-bottom: 10px; }
+.revenue-box-label { font-size: 14px; color: var(--gray1); margin-bottom: 4px; }
+.revenue-box-value { font-size: 28px; font-weight: 800; }
+.revenue-box-value.accent { color: var(--accent); }
+.revenue-box-value.teal { color: var(--teal); }
+.revenue-box-sub { font-size: 12px; color: var(--gray2); margin-top: 6px; line-height: 1.4; }
+.revenue-arrow { font-size: 24px; color: var(--gray2); display: flex; align-items: center; justify-content: center; }
+.revenue-detail { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.revenue-detail-card { background: var(--dark3); border-radius: 12px; padding: 24px; text-align: center; border: 1px solid var(--dark5); }
+.revenue-detail-card .label { font-size: 15px; color: var(--gray1); margin-bottom: 6px; }
+.revenue-detail-card .value { font-size: 28px; font-weight: 800; color: var(--accent); }
+.revenue-detail-card .desc { font-size: 14px; color: var(--gray2); margin-top: 4px; }
+.revenue-note { margin-top: 20px; text-align: center; font-size: 12px; color: var(--gray2); font-style: italic; }
+
 /* ===== CLOSING CTA (NEW) ===== */
 .closing{position:relative;padding:88px 24px 96px;text-align:center;overflow:hidden;background:var(--dark1);}
 .closing::before{content:"";position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:600px;height:360px;max-width:90%;background:radial-gradient(ellipse at center,rgba(252,150,0,.22),transparent 70%);pointer-events:none;}
@@ -230,7 +249,9 @@ mark{background:var(--mark);color:#1a1a1a;padding:0 4px;border-radius:3px;font-w
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .cover-grid, .pain-grid, .process-grid { grid-template-columns: 1fr; }
-  .benefit-grid { grid-template-columns: 1fr 1fr; }
+  .benefit-grid, .revenue-detail { grid-template-columns: 1fr 1fr; }
+  .revenue-flow { grid-template-columns: 1fr; gap: 12px; }
+  .revenue-arrow { transform: rotate(90deg); }
   .section-title { font-size: 31px; }
   .cover-title { font-size: 35px; }
   .phone-mockup { display: none; }
@@ -456,51 +477,51 @@ mark{background:var(--mark);color:#1a1a1a;padding:0 4px;border-radius:3px;font-w
   </div>
 </section>
 
-<!-- ===== 7. 수익구조 (NEW) ===== -->
-<section class="revenue">
-  <div class="rev-wrap">
-    <p class="rev-eyebrow">REVENUE STRUCTURE</p>
-    <h2 class="rev-title">셀러 <span class="o">수익 구조</span></h2>
-    <div class="flow-row">
-      <div class="rcard">
-        <div class="ricon">🛒</div>
-        <p class="rlabel">셀러 활동</p>
-        <p class="rbig o">공구진행</p>
-        <p class="rdesc">콘텐츠 제작 &amp;<br>공구 링크 공유</p>
+<!-- ===== 7. 수익구조 ===== -->
+<section class="dark-section" style="background:var(--dark1);">
+  <div class="container">
+    <div class="section-label reveal" style="color:var(--accent);">REVENUE STRUCTURE</div>
+    <h2 class="section-title reveal">셀러 <span class="accent">수익 구조</span></h2>
+    <div class="revenue-flow reveal reveal-delay-1">
+      <div class="revenue-box dark">
+        <div class="revenue-box-icon">🛒</div>
+        <div class="revenue-box-label">셀러 활동</div>
+        <div class="revenue-box-value accent">공구진행</div>
+        <div class="revenue-box-sub">콘텐츠 제작 &<br>공구 링크 공유</div>
       </div>
-      <span class="arrow">→</span>
-      <div class="rcard">
-        <div class="ricon">📊</div>
-        <p class="rlabel">수익 배분</p>
-        <p class="rbig w">상품별 상이</p>
-        <p class="rdesc">공급사 원가 +<br>플랫폼 운영비</p>
+      <div class="revenue-arrow">→</div>
+      <div class="revenue-box dark">
+        <div class="revenue-box-icon">📊</div>
+        <div class="revenue-box-label">수익 배분</div>
+        <div class="revenue-box-value" style="font-size:18px;color:var(--gray3);">상품별 상이</div>
+        <div class="revenue-box-sub">공급사 원가 +<br>플랫폼 운영비</div>
       </div>
-      <span class="arrow">→</span>
-      <div class="rcard highlight">
-        <div class="ricon">💸</div>
-        <p class="rlabel">셀러 수익</p>
-        <p class="rbig o">판매 <mark>수수료</mark><br>15~20% 보장</p>
-        <p class="rfoot">상품별 판매 <mark>수수료</mark><br>3일 이내 정산</p>
-      </div>
-    </div>
-    <div class="stat-row">
-      <div class="scard">
-        <p class="slabel">입점비</p>
-        <p class="snum o">0원</p>
-        <p class="sdesc">완전 무료</p>
-      </div>
-      <div class="scard">
-        <p class="slabel">정산 주기</p>
-        <p class="snum o">3일</p>
-        <p class="sdesc">업계 최빠른 정산</p>
-      </div>
-      <div class="scard">
-        <p class="slabel">재고 리스크</p>
-        <p class="snum o">0원</p>
-        <p class="sdesc">재고 부담 없음</p>
+      <div class="revenue-arrow">→</div>
+      <div class="revenue-box green">
+        <div class="revenue-box-icon">💸</div>
+        <div class="revenue-box-label">셀러 수익</div>
+        <div class="revenue-box-value teal" style="font-size:24px;">판매수수료<br>15~20% 보장</div>
+        <div class="revenue-box-sub">상품별 판매 수수료<br>3일 이내 정산</div>
       </div>
     </div>
-    <p class="rev-foot">※ 판매 <mark>수수료</mark>율은 상품 카테고리 및 공급사 조건에 따라 상이합니다</p>
+    <div class="revenue-detail reveal reveal-delay-2">
+      <div class="revenue-detail-card">
+        <div class="label">입점비</div>
+        <div class="value">0원</div>
+        <div class="desc">완전 무료</div>
+      </div>
+      <div class="revenue-detail-card">
+        <div class="label">정산 주기</div>
+        <div class="value">3일</div>
+        <div class="desc">업계 최빠른 정산</div>
+      </div>
+      <div class="revenue-detail-card">
+        <div class="label">재고 리스크</div>
+        <div class="value">0원</div>
+        <div class="desc">재고 부담 없음</div>
+      </div>
+    </div>
+    <div class="revenue-note reveal reveal-delay-3">※ 판매 수수료율은 상품 카테고리 및 공급사 조건에 따라 상이합니다</div>
   </div>
 </section>
 
