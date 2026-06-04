@@ -329,7 +329,7 @@ mark{background:var(--mark);color:#1a1a1a;padding:0 4px;border-radius:3px;font-w
             <div class="phone-content" style="padding:0;position:relative;">
               <div class="ph-slide active"><img src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2F1-3.gif?alt=media&token=c4c3ad95-4eba-45d5-888e-72d5bdacdf6c" alt="모여라딜 공구 콘텐츠"></div>
               <div class="ph-slide"><img src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2FImage_2026-06-04%2015_53_38.png?alt=media&token=cb69ff9f-2265-47bd-b92b-f28e676fe1be" alt="모여라딜 공구 콘텐츠"></div>
-              <div class="ph-slide"><video src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2Fyulmom_reel_2025_%2011_%2022__%EC%98%A4%ED%9B%84%207_06_423771398937862279941.mp4?alt=media&token=d6ccfa46-4529-477f-9a49-c34883de2c18" autoplay muted loop playsinline></video></div>
+              <div class="ph-slide"><video src="https://firebasestorage.googleapis.com/v0/b/moyeora-deal-manager.firebasestorage.app/o/%EC%A0%9C%EC%95%88%EC%84%9C%2Fyulmom_reel_2025_%2011_%2022__%EC%98%A4%ED%9B%84%207_06_423771398937862279941.mp4?alt=media&token=d6ccfa46-4529-477f-9a49-c34883de2c18" muted playsinline></video></div>
             </div>
           </div>
         </div>
@@ -621,16 +621,31 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// 커버 폰 목업 슬라이드 자동 전환 (gif → 이미지 → 영상)
+// 커버 폰 목업 슬라이드 자동 전환 (슬라이드별 시간 조절)
 (function(){
-  const slides = document.querySelectorAll('.ph-slide');
+  const slides = [...document.querySelectorAll('.ph-slide')];
   if (slides.length < 2) return;
-  let i = 0;
-  setInterval(() => {
+  const durations = [4000, 1500]; // gif 4초, 정지 이미지 1.5초 (영상은 끝까지 재생)
+  let i = 0, timer;
+  function next(){ show((i + 1) % slides.length); }
+  function show(n){
     slides[i].classList.remove('active');
-    i = (i + 1) % slides.length;
+    const prevVid = slides[i].querySelector('video');
+    if (prevVid){ prevVid.pause(); prevVid.onended = null; }
+    i = n;
     slides[i].classList.add('active');
-  }, 3500);
+    clearTimeout(timer);
+    const vid = slides[i].querySelector('video');
+    if (vid){
+      try { vid.currentTime = 0; vid.play(); } catch(e){}
+      vid.onended = next;                 // 영상이 끝나면 다음으로
+      timer = setTimeout(next, 10000);    // 안전장치: 최대 10초
+    } else {
+      timer = setTimeout(next, durations[i] != null ? durations[i] : 3500);
+    }
+  }
+  slides.forEach((s, j) => s.classList.toggle('active', j === 0));
+  timer = setTimeout(next, durations[0]);
 })();
 </script>
 </body>
